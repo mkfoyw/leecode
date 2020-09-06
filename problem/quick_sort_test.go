@@ -1,4 +1,4 @@
-package interview
+package preoblem
 
 import (
 	"fmt"

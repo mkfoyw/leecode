@@ -1,4 +1,4 @@
-package interview 
+package preoblem
 
 /*
 假设按照升序排序的数组在预先未知的某个点上进行了旋转。
@@ -24,42 +24,41 @@ package interview
 	接上一个题， 搜索旋转数组I， 就是 nums[i] == nums[mid] 我们不能判断 nums[i, mid] 是否有序
 */
 
-
 func search(nums []int, target int) bool {
-    if len(nums) == 0{
-        return false
-    }
-    i, j := 0, len(nums)-1 
+	if len(nums) == 0 {
+		return false
+	}
+	i, j := 0, len(nums)-1
 
-    for i != j {
-        mid := (i + j)/2 
-        if nums[mid] == target{
-            return true
-        }
-        // 这是避免 111111113  3 旋转后 111311111
-        if nums[i] == nums[mid]{
-            i ++
-            continue
-        }
+	for i != j {
+		mid := (i + j) / 2
+		if nums[mid] == target {
+			return true
+		}
+		// 这是避免 111111113  3 旋转后 111311111
+		if nums[i] == nums[mid] {
+			i++
+			continue
+		}
 
-        if nums[i] <= nums[mid]{
-            if target >= nums[i] && target <= nums[mid]{
-                j = mid 
-            }else{
-                i = mid + 1
-            }
-        }else{
-            if target >= nums[mid] && target <= nums[j]{
-                i = mid
-            }else{
-                j = mid -1
-            }
-        }
-    }
+		if nums[i] <= nums[mid] {
+			if target >= nums[i] && target <= nums[mid] {
+				j = mid
+			} else {
+				i = mid + 1
+			}
+		} else {
+			if target >= nums[mid] && target <= nums[j] {
+				i = mid
+			} else {
+				j = mid - 1
+			}
+		}
+	}
 
-    if nums[i] == target{
-        return true
-    }else{
-        return false
-    }
+	if nums[i] == target {
+		return true
+	} else {
+		return false
+	}
 }

@@ -1,4 +1,4 @@
-package interview
+package preoblem
 
 /*
 128. 最长连续序列

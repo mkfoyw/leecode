@@ -1,6 +1,6 @@
-package interview 
+package preoblem
 
-/* 
+/*
 假设按照升序排序的数组在预先未知的某个点上进行了旋转。
 
 ( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
@@ -23,23 +23,22 @@ package interview
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 解题思路：
 	都一样
-	
-*/ 
+
+*/
 
 func findMin(nums []int) int {
-    if len(nums) == 0{
-        return  -1 
-    }
+	if len(nums) == 0 {
+		return -1
+	}
 
-    l, r := 0 , len(nums) - 1 
-    for l < r {
-        mid := (l + r) >> 1 
-        if nums[mid] < nums[r]{
-            r = mid 
-        }else{
-            l = mid + 1 
-        }
-    }
-    return nums[l]
+	l, r := 0, len(nums)-1
+	for l < r {
+		mid := (l + r) >> 1
+		if nums[mid] < nums[r] {
+			r = mid
+		} else {
+			l = mid + 1
+		}
+	}
+	return nums[l]
 }
-

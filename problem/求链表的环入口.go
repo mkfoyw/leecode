@@ -1,4 +1,4 @@
-package interview 
+package preoblem
 
 /*
 给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
@@ -18,34 +18,31 @@ package interview
 * 入口在相遇点再走： nR-S 步， 那么一定会回到环的入口点。
 */
 
-
-
 func detectCycle(head *ListNode) *ListNode {
-    if head == nil || head.Next == nil{
-        return nil
-    }
-    p1, p2 := head, head
+	if head == nil || head.Next == nil {
+		return nil
+	}
+	p1, p2 := head, head
 
-    for {
-        p2 = p2.Next
-        if p2 == nil{
-            return nil
-        }
-        p2 = p2.Next
-        if p2 == nil{
-            return nil
-        }
-        p1 = p1.Next
-        if p1 == p2{
-            break
-        }
-    }
+	for {
+		p2 = p2.Next
+		if p2 == nil {
+			return nil
+		}
+		p2 = p2.Next
+		if p2 == nil {
+			return nil
+		}
+		p1 = p1.Next
+		if p1 == p2 {
+			break
+		}
+	}
 
-    p1 = head
-    for p1 == p2{
-        p1 = p1.Next
-        p2 = p2.Next
-    }
-    return p1
+	p1 = head
+	for p1 == p2 {
+		p1 = p1.Next
+		p2 = p2.Next
+	}
+	return p1
 }
-

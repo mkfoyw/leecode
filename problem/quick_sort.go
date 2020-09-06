@@ -1,4 +1,4 @@
-package interview
+package preoblem
 
 //QuickSort 快速排序
 func QuickSort(arr []int, left, right int) {

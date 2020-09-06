@@ -1,5 +1,4 @@
-package interview 
-
+package preoblem
 
 /*
 125. 验证回文串
@@ -21,26 +20,26 @@ package interview
 */
 
 func isPalindrome(s string) bool {
-    var trim []rune
-    for _, item :=  range s{
-        if item >= 'a' && item <= 'z'{
-            trim = append(trim, item)
-        }
-        if item >= 'A' && item <= 'Z'{
-            trim = append(trim, 'a' + item - 'A')
-        }
-        if item >= '0' && item <= '9'{
-            trim = append(trim, item)
-        }
-    }
+	var trim []rune
+	for _, item := range s {
+		if item >= 'a' && item <= 'z' {
+			trim = append(trim, item)
+		}
+		if item >= 'A' && item <= 'Z' {
+			trim = append(trim, 'a'+item-'A')
+		}
+		if item >= '0' && item <= '9' {
+			trim = append(trim, item)
+		}
+	}
 
-    l, r := 0,len(trim) - 1
-    for  l < r {
-        if trim[l] != trim[r]{
-            return false
-        }
-        l ++
-        r --
-    }
-    return true
+	l, r := 0, len(trim)-1
+	for l < r {
+		if trim[l] != trim[r] {
+			return false
+		}
+		l++
+		r--
+	}
+	return true
 }
